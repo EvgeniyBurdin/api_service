@@ -20,5 +20,5 @@ class WrapResponse(BaseApi):
     """ Ответ.
     """
     success: bool = Field(description="Статус ответа.", default=True)
-    result: Any = Field(description="Результат успешного ответа.")
+    result: Any = Field(description="Результат ответа.")
     id: Optional[StrictInt] = Field(description=_ID_DESCRIPTION)
