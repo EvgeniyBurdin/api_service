@@ -9,4 +9,4 @@ ADD ./sources /sources
 
 ENV PYTHONPATH /sources
 
-CMD python3 run.py
+CMD python3 $RS

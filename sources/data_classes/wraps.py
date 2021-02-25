@@ -1,11 +1,10 @@
-""" Классы данных оболочек запроса и ответа."""
-
+""" Классы данных оболочек запроса и ответа.
+"""
 from typing import Any, Optional
 
 from pydantic import Field, StrictInt
 
 from data_classes.base import BaseApi
-
 
 _ID_DESCRIPTION = "Идентификатор запроса к сервису."
 

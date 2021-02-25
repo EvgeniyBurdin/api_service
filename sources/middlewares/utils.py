@@ -1,7 +1,9 @@
+""" Классы и функции для middlewares.
+"""
 import json
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Any, Callable, Optional, Dict
+from typing import Any, Callable, Dict, Optional
 from uuid import UUID
 
 
@@ -43,6 +45,12 @@ class ArgumentsManager:
 
         Связывает имя аргумента с действием, которое надо совершить для
         получения значения аргумента.
+
+        TODO: Сейчас менеджер очень простой.
+              Можно добавить регистрацию сразу нескольких ключей одного вида.
+              А так же, добавить правила для разрешений конфликтов имен.
+              И проч... например, и то, что потом можно будет использовать при
+              сборке документации.
     """
 
     def __init__(self) -> None:
@@ -58,6 +66,16 @@ class ArgumentsManager:
 
     def get_request_body(self, raw_data: RawDataForArgument):
         return raw_data.request_body
+
+    # Ключи в request --------------------------------------------------------
+
+    def reg_request_key(self, arg_name) -> None:
+        """ Регистрация имени аргумента для тела запроса.
+        """
+        self.getters[arg_name] = self.get_request_key
+
+    def get_request_key(self, raw_data: RawDataForArgument):
+        return raw_data.request[raw_data.arg_name]
 
     # Ключи в request.app ----------------------------------------------------
 

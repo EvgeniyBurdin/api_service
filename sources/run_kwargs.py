@@ -1,11 +1,17 @@
-""" Запуск сервиса."""
-
+""" Запуск сервиса с обработчиками у которых именованные аргументы.
+"""
 from aiohttp import web
 
+from handlers.kwargs import create, info, read
+from middlewares.kwargs_handler import KwargsHandler
 from middlewares.utils import ArgumentsManager
-from middlewares.wrap_json import WrapExample
 from settings import SERVICE_HOST, SERVICE_PORT
-from urls import routes
+
+routes = [
+    web.post("/create", create),
+    web.get("/info/{info_id}", info),
+    web.post("/read", read),
+]
 
 
 def get_app() -> web.Application:
@@ -31,9 +37,9 @@ def get_app() -> web.Application:
     # параметр запроса из словаря request.match_info
     arguments_manager.reg_match_info_key("info_id")
 
-    wrap_example = WrapExample(arguments_manager=arguments_manager)
+    service_handler = KwargsHandler(arguments_manager=arguments_manager)
 
-    app.middlewares.append(wrap_example.middleware)
+    app.middlewares.append(service_handler.middleware)
 
     return app
 

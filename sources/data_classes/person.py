@@ -1,3 +1,5 @@
+""" Классы данных для Персоны.
+"""
 from uuid import UUID
 
 from pydantic import Field, StrictStr

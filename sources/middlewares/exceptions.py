@@ -1,3 +1,7 @@
+""" Классы исключений для middlewares.
+"""
+
+
 class MiddlewaresError(Exception):
     pass
 

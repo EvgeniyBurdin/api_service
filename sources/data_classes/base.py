@@ -1,5 +1,5 @@
-""" Базовый класс данных для api."""
-
+""" Базовый класс данных для api.
+"""
 from pydantic import BaseModel, Extra
 
 
