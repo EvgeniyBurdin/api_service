@@ -56,7 +56,7 @@ class ArgumentsManager:
         """
         self.getters[arg_name] = self.get_request_body
 
-    def get_request_body(self, raw_data: RawDataForArgument) -> Callable:
+    def get_request_body(self, raw_data: RawDataForArgument):
         return raw_data.request_body
 
     # Ключи в request.app ----------------------------------------------------
