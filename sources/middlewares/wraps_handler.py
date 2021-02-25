@@ -16,7 +16,7 @@ class WrapsKwargsHandler(KwargsHandler):
     """
 
     def get_error_body(self, request: web.Request, error: Exception) -> dict:
-        """ Формирует и отдает сообщение об ошибке.
+        """ Формирует и отдает словарь с телом ответа с ошибкой.
 
             Для поля оболочки id использует сохраненное в request значение.
         """

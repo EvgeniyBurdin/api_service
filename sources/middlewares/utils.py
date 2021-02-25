@@ -70,7 +70,7 @@ class ArgumentsManager:
     # Ключи в request --------------------------------------------------------
 
     def reg_request_key(self, arg_name) -> None:
-        """ Регистрация имени аргумента для тела запроса.
+        """ Регистрация имени аргумента который хранится в request.
         """
         self.getters[arg_name] = self.get_request_key
 
@@ -80,7 +80,7 @@ class ArgumentsManager:
     # Ключи в request.app ----------------------------------------------------
 
     def reg_app_key(self, arg_name) -> None:
-        """ Регистрация имени аргумента которых хранится в app.
+        """ Регистрация имени аргумента который хранится в app.
         """
         self.getters[arg_name] = self.get_app_key
 
