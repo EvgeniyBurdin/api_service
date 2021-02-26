@@ -17,13 +17,12 @@ class WrapsKwargsHandler(KwargsHandler):
 
     def get_error_body(self, request: web.Request, error: Exception) -> dict:
         """ Формирует и отдает словарь с телом ответа с ошибкой.
-
-            Для поля оболочки id использует сохраненное в request значение.
         """
         result = dict(error_type=str(type(error)), error_message=str(error))
         # Так как мы знаем какая у нас оболочка ответа, сразу сделаем словарь
         # с аналогичной "схемой"
         response = dict(
+            # Для поля id используется сохраненное в request значение.
             success=False, result=result, id=request.get(KEY_NAME_FOR_ID)
         )
         return response
