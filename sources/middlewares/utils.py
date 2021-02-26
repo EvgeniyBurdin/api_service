@@ -6,6 +6,8 @@ from datetime import datetime
 from typing import Any, Callable, Dict, Optional
 from uuid import UUID
 
+from aiohttp import web
+
 
 # json -----------------------------------------------------------------------
 
@@ -35,7 +37,7 @@ def json_dumps(obj) -> str:
 @dataclass
 class RawDataForArgument:
 
-    request: Any
+    request: web.Request
     request_body: Any
     arg_name: Optional[str] = None
 
