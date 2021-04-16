@@ -82,7 +82,7 @@ class SimpleHandler:
 
         except Exception as error:
             error_body = self.get_error_body(request, error)
-            text = await self.get_json_dumps(error_body)
+            text = await self.get_json_dumps(request, error_body)
             status = 500
 
         return text, status
