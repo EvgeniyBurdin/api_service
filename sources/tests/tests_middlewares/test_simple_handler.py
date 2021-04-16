@@ -116,9 +116,11 @@ async def test_response_text_and_status_200():
 @pytest.mark.asyncio
 async def test_response_text_and_status_500():
 
-    wrong_object = complex(4, 3)
+    not_json_serializable_object = complex(4, 3)
 
     text, status = await simple_handler.get_response_text_and_status(
-        {}, wrong_object, 200
+        {}, not_json_serializable_object, 200
     )
+    assert "TypeError" in text
+    assert "is not JSON serializable" in text
     assert status == 500
