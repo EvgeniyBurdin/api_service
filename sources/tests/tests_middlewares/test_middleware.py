@@ -1,4 +1,4 @@
-""" Тесты непосредственно middleware
+""" Тесты для middleware.
     Выполняем при помощи тестового клиенда aiohttp_client из pytest-aiohttp.
 """
 from run_simple import get_app
@@ -31,7 +31,7 @@ async def test_middleware_400(aiohttp_client):
 
 
 async def test_middleware_500(aiohttp_client):
-    """ Ответ при внутренней ошибки сервиса
+    """ Ответ если произошла внутренняя ошибка сервиса
        (вызываем апи-метод handler500, который эмулирует ошибку сервиса)
     """
     app = get_app()
