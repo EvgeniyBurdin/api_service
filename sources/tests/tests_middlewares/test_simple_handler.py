@@ -105,7 +105,8 @@ async def test_get_json_dumps():
 
 @pytest.mark.asyncio
 async def test_response_text_and_status_200():
-
+    """ Получение строки json из объекта python со статусом по умолчанию (200)
+    """
     text, status = await simple_handler.get_response_text_and_status(
         {}, {"foo": "bar"}, 200
     )
@@ -115,7 +116,8 @@ async def test_response_text_and_status_200():
 
 @pytest.mark.asyncio
 async def test_response_text_and_status_500():
-
+    """ Получение строки json с описанием ошибки и статусом 500
+    """
     not_json_serializable_object = complex(4, 3)
 
     text, status = await simple_handler.get_response_text_and_status(
