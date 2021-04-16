@@ -1,5 +1,6 @@
 """ Тесты для middleware.
-    Выполняем при помощи тестового клиенда aiohttp_client из pytest-aiohttp.
+    Выполняем при помощи тестового клиента aiohttp_client из
+    библиотеки pytest-aiohttp.
 """
 from run_simple import get_app
 
