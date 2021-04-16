@@ -93,3 +93,32 @@ async def test_get_response_body_and_status_500():
     assert error_message == result[0]["error_message"]
     assert "Exception" in result[0]["error_type"]
     assert result[1] == 500
+
+
+@pytest.mark.asyncio
+async def test_get_json_dumps():
+    """ Получение строки json из объекта python
+    """
+    result = await simple_handler.get_json_dumps({}, {"foo": "bar"})
+    assert result == '{"foo": "bar"}'
+
+
+@pytest.mark.asyncio
+async def test_response_text_and_status_200():
+
+    text, status = await simple_handler.get_response_text_and_status(
+        {}, {"foo": "bar"}, 200
+    )
+    assert text == '{"foo": "bar"}'
+    assert status == 200
+
+
+@pytest.mark.asyncio
+async def test_response_text_and_status_500():
+
+    wrong_object = complex(4, 3)
+
+    text, status = await simple_handler.get_response_text_and_status(
+        {}, wrong_object, 200
+    )
+    assert status == 500
