@@ -14,7 +14,8 @@ async def some_handler(some_arg_name: int):
 
 
 def test_make_handler_kwargs():
-    """ Формирование словаря с аргументами и их значениями для вызова метода
+    """ Формирование словаря с аргументами и их значениями для вызова
+        обработчика
     """
     kwargs = {"some_arg_name": 1}
 
@@ -44,8 +45,8 @@ async def some_handler_with_request(some_arg_name: int, req: Request):
 
 
 def test_make_handler_kwargs_with_request():
-    """ Формирование словаря с аргументами и их значениями для вызова метода
-        (если в сигнатуре есть аргумент с аннотацией  Request)
+    """ Формирование словаря с аргументами и их значениями для вызова
+        обработчика (если в сигнатуре есть аргумент с аннотацией  Request)
     """
     data = {"some_arg_name": 1}
 
