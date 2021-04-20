@@ -70,7 +70,7 @@ def test_make_handler_kwargs_fail():
     """ Исключение, если в сигнатуре обработчики есть незарегистрированный
         аргумент.
     """
-    with pytest.raises(InvalidHandlerArgument) as error:
+    with pytest.raises(InvalidHandlerArgument):
         kwargs_handler.make_handler_kwargs(
             request={}, handler=wrong_handler, request_body={}
         )
