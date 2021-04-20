@@ -74,17 +74,14 @@ def test_make_handler_kwargs_fail():
         kwargs_handler.make_handler_kwargs(
             request={}, handler=wrong_handler, request_body={}
         )
-        assert str(wrong_handler) in error
-        assert "unregistered_argument_name" in error
-        assert str(str) in error
 
 
 def test_build_error_message_for_invalid_handler_argument():
     """ Сообщение об ошибке содержит все необходимые сведения
     """
     result = kwargs_handler.build_error_message_for_invalid_handler_argument(
-        wrong_handler, "unregistered_argument_name", str
+        wrong_handler, "unregistered_argument_name", int
     )
+    print("- - - - - - === === ===", result)
     assert str(wrong_handler) in result
     assert "unregistered_argument_name" in result
-    assert str(str) in result
