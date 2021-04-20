@@ -82,6 +82,5 @@ def test_build_error_message_for_invalid_handler_argument():
     result = kwargs_handler.build_error_message_for_invalid_handler_argument(
         wrong_handler, "unregistered_argument_name", int
     )
-    print("- - - - - - === === ===", result)
     assert str(wrong_handler) in result
     assert "unregistered_argument_name" in result
